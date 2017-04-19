@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="index.js"></script>
+</head>
+<body>
+<!-- CALCULATOR -->
+<div class="calculator">
+    <!-- CALCULATOR FORM -->
+    <form class="calculator__form">
+        <!-- CALCULATOR ROW -->
+        <div class="calculator__row">
+            <input type="text" id="display" class="calculator__display"/>
+        </div>
+        <!-- CALCULATOR ROW -->
+        <div class="calculator__row">
+            <input type="button" id="c" value="c" class="calculator__key calculator__clear"/>
+            <input type="button" id="backspace" value="<--" class="calculator__key calculator__backspace"/>
+            <input type="button" id="power" value="^2" class="calculator__key calculator__power"/>
+            <input type="button" id="divide" value="/" class="calculator__key"/>
+        </div>
+        <!-- CALCULATOR ROW -->
+        <div class="calculator__row">
+            <input type="button" id="7" value="7" class="calculator__key" onclick="pressDigitKey(value)"/>
+            <input type="button" id="8" value="8" class="calculator__key" onclick="pressDigitKey(value)"/>
+            <input type="button" id="9" value="9" class="calculator__key" onclick="pressDigitKey(value)"/>
+            <input type="button" id="multi" value="*" class="calculator__key"/>
+        </div>
+        <!-- CALCULATOR ROW -->
+        <div class="calculator__row">
+            <input type="button" id="4" value="4" class="calculator__key" onclick="pressDigitKey(value)"/>
+            <input type="button" id="5" value="5" class="calculator__key" onclick="pressDigitKey(value)"/>
+            <input type="button" id="6" value="6" class="calculator__key"onclick="pressDigitKey(value)"/>
+            <input type="button" id="substr" value="-" class="calculator__key"/>
+        </div>
+        <!-- CALCULATOR ROW -->
+        <div class="calculator__row">
+            <input type="button" id="1" value="1" class="calculator__key" onclick="pressDigitKey(value)"/>
+            <input type="button" id="2" value="2" class="calculator__key" onclick="pressDigitKey(value)"/>
+            <input type="button" id="3" value="3" class="calculator__key" onclick="pressDigitKey(value)"/>
+            <input type="button" id="add" value="+" class="calculator__key"/>
+        </div>
+        <!-- CALCULATOR ROW -->
+        <div class="calculator__row">
+            <input type="button" id="0" value="0" class="calculator__key" onclick="pressDigitKey(value)"/>
+            <input type="button" id="dot" value="." class="calculator__key"/>
+            <input type="button" id="equal" value="=" class="calculator__key calculator__key--equal"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>
