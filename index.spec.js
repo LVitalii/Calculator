@@ -7,7 +7,8 @@ describe('Test', function() {
 describe('Clicking on digits', function() {
     it('display shows entered digit', function() {
         var testDigit = 5;
-        var digitOnDisplay = pressDigitKey(testDigit);
+        var obj = { value: []};
+        var digitOnDisplay = pressDigitKey(testDigit, obj);
         expect(digitOnDisplay).toBe(testDigit);
     });
 

@@ -1,5 +1,5 @@
-function pressDigitKey(digit){
-    var display=document.getElementById("display");
+function pressDigitKey(digit, display){
+   // var display=document.getElementById("display");
     var value = display.value;
     if (value.length>0){
         value=value.concat(digit);
