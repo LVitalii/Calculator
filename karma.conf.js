@@ -6,12 +6,13 @@ module.exports = function(config) {
 
         frameworks: ['jasmine'],
 
-        preprocessors: {
-            'index.js': ['coverage']
-        },
+        // preprocessors: {
+        //     'index.js': ['coverage']
+        //     // 'index.js': ['webpack', 'coverage']
+        // },
 
         files: [
-            'index.js',
+            // 'index.js',
             'index.spec.js'
         ],
 
@@ -23,6 +24,30 @@ module.exports = function(config) {
                 {type: 'html'},
                 {type: 'lcov', subdir: 'lcov'}
             ]
+        },
+
+        //start new
+        preprocessors: {
+            'index.spec.js': ['webpack']
+        },
+
+        webpack: {
+            module: {
+                rules: [
+                    {
+                        test: /\.js$/,
+                        exclude: /(node_modules|bower_components)/,
+                        use: {
+                            loader: 'babel-loader',
+                            options: {
+                                presets: ['env']
+                            }
+                        }
+                    }
+                ]
+            }
         }
+        //end new
+
     });
 }
