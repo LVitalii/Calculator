@@ -74,13 +74,13 @@
 /* harmony export (immutable) */ __webpack_exports__["a"] = pressDigit;
 function pressDigit(event) {
     var result = event.target.value;
-    setDisplay(result);
+    // setDisplay(result);
     return result;
 }
 
-function setDisplay(value) {
-    document.getElementById("display").value = value;
-}
+// function setDisplay (value) {
+//     document.getElementById("display").value = value;
+// }
 
 /***/ }),
 /* 1 */
@@ -92,7 +92,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var key8 = document.getElementById("8");
-key8.addEventListener("click", __WEBPACK_IMPORTED_MODULE_0__index_js__["a" /* pressDigit */], false);
+key8.addEventListener("click", function (event) {
+    let value = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__index_js__["a" /* pressDigit */])(event);
+    document.getElementById("display").value = value;
+}, false);
 
 /***/ })
 /******/ ]);
