@@ -71,16 +71,86 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = pressDigit;
-function pressDigit(event) {
-    var result = event.target.value;
-    // setDisplay(result);
-    return result;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return calculator; });
+/* harmony export (immutable) */ __webpack_exports__["c"] = displayCurrentDigit;
+/* harmony export (immutable) */ __webpack_exports__["b"] = pressDigit;
+/* unused harmony export addFirstDigit */
+// export function pressDigit(event, dispay) {
+//     var valueOnDisplay="";
+//     if (dispay.value.length>0)
+//     {
+//         var arrDisplay = dispay.value.concat(event.target.value);
+//         arrDisplay.forEach(function(element, index, array)
+//         {
+//             valueOnDisplay = valueOnDisplay + element;
+//         });
+//     } else {
+//         valueOnDisplay = event.target.value;
+//     }
+//     return valueOnDisplay;
+// }
+
+let Calculator = function () {
+    this.firstDigit = 0;
+    this.isFirstDigitAvailable = true;
+    this.secondDigit = 0;
+    this.isSecondDigitAvailable = false;
+    this.sign = "";
+    this.sum = function () {
+        return this.firstDigit + this.secondDigit;
+    };
+};
+
+var calculator = function () {
+    if (calculator.instance) {
+        return calculator.instance;
+    }
+    return new Calculator();
+};
+
+function displayCurrentDigit(calculator) {
+    if (calculator.isFirstDigitAvailable && !calculator.isSecondDigitAvailable) {
+        return calculator.firstDigit;
+    } else {
+        return calculator.secondDigit;
+    }
 }
 
-// function setDisplay (value) {
-//     document.getElementById("display").value = value;
-// }
+function pressDigit(event, calculator) {
+    var digit = event.target.value;
+    if (displayCurrentDigit(calculator) > 0) {
+        if (calculator.isFirstDigitAvailable && !calculator.isSecondDigitAvailable) {
+            addFirstDigitToEnd(digit, calculator);
+        } else {
+            addSecondDigitToEnd(digit);
+        }
+    } else {
+        if (calculator.isFirstDigitAvailable && !calculator.isSecondDigitAvailable) {
+            addFirstDigit(digit, calculator);
+        } else {
+            addSecondDigit(digit);
+        }
+    }
+    return displayCurrentDigit(calculator);
+}
+
+function addFirstDigit(digit, calculator) {
+    calculator.firstDigit = digit;
+}
+
+function addSecondDigit(digit) {
+    calculator.secondDigit = Number.parseInt(digit);
+}
+
+function addFirstDigitToEnd(digit, calculator) {
+    var result = calculator.firstDigit * 10 + digit;
+    calculator.firstDigit = result;
+}
+
+function addSecondDigitToEnd(digit) {
+    var result = calculator.secondDigit * 10 + Number.parseInt(digit);
+    calculator.secondDigit = result;
+}
 
 /***/ }),
 /* 1 */
@@ -91,10 +161,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_js__ = __webpack_require__(0);
 
 
+
+
 var key8 = document.getElementById("8");
 key8.addEventListener("click", function (event) {
-    let value = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__index_js__["a" /* pressDigit */])(event);
-    document.getElementById("display").value = value;
+    let calc = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__index_js__["a" /* calculator */])();
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__index_js__["b" /* pressDigit */])(event, calc);
+    document.getElementById("display").value = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__index_js__["c" /* displayCurrentDigit */])(calc);
 }, false);
 
 /***/ })
