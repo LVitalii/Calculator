@@ -1,0 +1,20 @@
+Navigation list of tests:
+1) Clicking on a digit
+	shows entered first digit on display if there was no digits on display
+	shows entered digit at the end of the display value in case there were already digits
+2) Clicking on Clear
+	clears the first cell if the first operand is entered
+	makes the first cell available for writing if the first operand is entered
+	clears the first and second cells if the second operand is entered
+	makes the first cell available for writing if the second operand is entered
+3) Clicking on Sum
+	shows the first operand on display if the first operand was entered
+	makes the second cell available if the first operand was entered
+	writes the sum of 2 operands for the first cell if the second operand was entered
+	makes the first cell available if the second operand was entered
+	clears the second cells if the second operand was entered
+4) Clicking on Equal
+	shows the first operand on display if the first operand is entered
+	shows the sum of 2 operands if the second operand was entered after the Sum was clicked
+	clears the first and second cells and sign if the second operand was entered
+	makes the first cell available for writing if the second operand was entered
